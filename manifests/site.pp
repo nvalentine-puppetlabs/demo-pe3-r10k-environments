@@ -21,7 +21,7 @@ node 'base' {
 
 node /^agent0.*$/ {
   class { 'gitolite': 
-    admin_pub_key = hiera('gitolite::admin_pub_key')
+    admin_pub_key => hiera('gitolite::admin_pub_key')
   }
 }
 
