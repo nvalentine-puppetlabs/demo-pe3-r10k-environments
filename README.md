@@ -1,4 +1,4 @@
 dev-puppet-module
 =================
 
-Scaffolding for Puppet module development with Vagrant
+r10k environment "super module" of demo-pe3-r10k Vagrant environment
