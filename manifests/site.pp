@@ -19,6 +19,12 @@ node 'base' {
   resources { 'host': purge => true, }
 }
 
+node /^agent0.*$/ {
+  class { 'gitolite': 
+    admin_pub_key = hiera('gitolite::admin_pub_key')
+  }
+}
+
 node default inherits base { 
   notify { "${::hostname} fell through to default node classification.": }
 }
