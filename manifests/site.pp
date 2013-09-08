@@ -8,7 +8,7 @@ node 'base' {
     ip => $::virtual ? {
       'virtualbox' => $::ipaddress_eth1,
       default => $::ipaddress_eth0,
-    }
+    },
     host_aliases => $hostname,
   }
 
