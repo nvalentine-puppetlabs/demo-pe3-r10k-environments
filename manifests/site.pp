@@ -9,10 +9,10 @@ node 'base' {
     host_aliases => $hostname,
   }
 
-  host { 'localhost.localdomain':
+  host { 'localhost':
     ensure => present,
     ip => '127.0.0.1',
-    host_aliases => 'localhost',
+    host_aliases => 'localhost.localdomain',
   }
 
   Host <<||>>
