@@ -5,7 +5,10 @@ node 'base' {
 
   @@host { "${::hostname}.${domainname}":
     ensure => present,
-    ip => $ipaddress_eth1,
+    ip => $::virtual ? {
+      'virtualbox' => $::ipaddress_eth1,
+      default => $::ipaddress_eth0,
+    },
     host_aliases => $hostname,
   }
 
