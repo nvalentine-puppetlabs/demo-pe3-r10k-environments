@@ -22,6 +22,10 @@ node 'base' {
   resources { 'host': purge => true, }
 }
 
+node /^agent0.*/ {
+  include openmediavault
+}
+
 node default inherits base { 
   notify { "${::hostname} fell through to default node classification.": }
 }
