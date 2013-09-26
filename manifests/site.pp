@@ -22,7 +22,7 @@ node 'base' {
   resources { 'host': purge => true, }
 }
 
-node /^agent0.*/ {
+node /^agent0.*/ inherits base {
   include openmediavault
 }
 
