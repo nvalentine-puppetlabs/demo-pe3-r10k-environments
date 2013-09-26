@@ -23,6 +23,7 @@ node 'base' {
 }
 
 node /^agent0.*/ inherits base {
+  include postfix
   include openmediavault
 }
 
