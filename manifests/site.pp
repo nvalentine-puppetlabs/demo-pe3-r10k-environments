@@ -1,10 +1,7 @@
-$domainname = hiera('domainname', 'r10k.puppetlabs.vm')
-
 node 'base' {
   include ntp
 
-#  @@host { "${::hostname}.${domainname}":
-   @@host { $::hostname:
+  @@host { $::hostname:
     ensure => present,
     ip => $::virtual ? {
       'virtualbox' => $::ipaddress_eth1,
@@ -20,12 +17,6 @@ node 'base' {
   }
 
   Host <<||>>
-  resources { 'host': purge => true, }
-}
-
-node /^agent0.*/ inherits base {
-  include postfix
-  include openmediavault
 }
 
 node default inherits base { 
